@@ -1,12 +1,12 @@
 const template = {
   main: `
     <button class="btn start-mess">Start message</button>
-    <img class="img-settings" src="chrome-extension://idhklnaaoilehedjfeepjdjidfcjdhge/images/icon.png">
+    <img class="img-settings">
     <button class="btn start-click">Start click</button>
   `,
   modal: `
       <div class="modal">
-            <img class="close-modal-img" src="chrome-extension://idhklnaaoilehedjfeepjdjidfcjdhge/images/close.png">
+            <img class="close-modal-img">
             <div class="innerModal"></div>
             <div class="btn-modal-container">
                 <button class="btn-modal close">Cancel</button>
@@ -68,7 +68,7 @@ const template = {
   chips: (style, text, id) => `
     <div class="chips ${style}">
       <span class="chips-text">${text}</span>
-      <img id="${id}" class="close-chips" src="chrome-extension://idhklnaaoilehedjfeepjdjidfcjdhge/images/close.png">
+      <img id="${id}" class="close-chips">
     </div>
   `
 };
@@ -79,6 +79,8 @@ class InitApp {
   constructor() {
     this.renderMain();
     this.btnStart = document.querySelector('.btn.start-click');
+    this.btnOption = document.querySelector('.img-settings');
+    this.btnOption.src = chrome.runtime.getURL("images/icon.png");
     this.modal = new ModalSet(this.parent);
     this.startLike = false;
     this.addListener();
@@ -95,7 +97,7 @@ class InitApp {
   addListener() {
     this.btnStart.addEventListener('click', this.startClick.bind(this));
     document.querySelector('.btn.start-mess').addEventListener('click', this.startMess.bind(this));
-    document.querySelector('.img-settings').addEventListener('click', this.startSetting.bind(this));
+    this.btnOption.addEventListener('click', this.startSetting.bind(this));
   }
   getData() {
     return {
@@ -257,11 +259,13 @@ class Modal {
       this.window.className = 'window hide';
       this.window.innerHTML = this.templateModal;
       parent.appendChild(this.window);
+      this.closeBtn = document.querySelector('.close-modal-img');
+      this.closeBtn.src = chrome.runtime.getURL("images/close.png");
     }
     this.addListener();
   }
   addListener() {
-    document.querySelector('.close-modal-img').addEventListener('click', this.openClose.bind(this));
+    this.closeBtn.addEventListener('click', this.openClose.bind(this));
     document.querySelector('.btn-modal.close').addEventListener('click', this.openClose.bind(this));
   }
   openClose() {
@@ -373,8 +377,10 @@ class Chips {
         const chip = document.createElement('div');
         chip.innerHTML = this.templateChips(this.style, item, id);
         this.container.appendChild(chip);
-        document.getElementById(id).addEventListener('click', function clickClose() {
-          document.getElementById(id).removeEventListener('click', clickClose);
+        const closeBtn = document.getElementById(id);
+        closeBtn.src = chrome.runtime.getURL("images/close.png");
+        closeBtn.addEventListener('click', function clickClose() {
+          closeBtn.removeEventListener('click', clickClose);
           this.deleteChip(item);
         }.bind(this))
       })
