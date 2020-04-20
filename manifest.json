@@ -3,13 +3,13 @@
   "manifest_version": 2,
   "version": "0.0.1",
   "description": "A plain text description",
-
+  "icons" : { "16" : "favicon.png" , "48" : "favicon.png" , "128" : "favicon.png" },
   "content_scripts": [
     {
       "matches": ["https://tinder.com/*"],
       "run_it": "document_end",
       "css": ["styles.css"],
-      "js": ["script.js"]
+      "js": ["index.js"]
     }
   ],
   "web_accessible_resources": [

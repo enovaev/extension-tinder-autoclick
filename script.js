@@ -1,5 +1,5 @@
-const userID = '';
-const token = '';
+const userID = '5e3175203e57b50100655439';
+const token = 'e6c2f64d-b124-4dc7-a857-9e6fcc1be0bc';
 
 
 const start = () => {
@@ -193,7 +193,8 @@ const start = () => {
 
         isMess = false;
         alert(`Успешно! Было отправлено ${arrMatch.length} сообщения(ий)`);
-      } catch {
+      } catch (e) {
+        console.log(e);
         isMess = false;
         alert(`Ошибка! Сообщения не были отправлены :(`);
       }
