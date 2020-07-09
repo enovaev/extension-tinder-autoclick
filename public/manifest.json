@@ -9,7 +9,7 @@
       "matches": ["https://tinder.com/*"],
       "run_it": "document_end",
       "css": ["styles.css"],
-      "js": ["index.js"]
+      "js": ["bundle.js"]
     }
   ],
   "web_accessible_resources": [

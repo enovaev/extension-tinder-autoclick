@@ -6,3 +6,6 @@
 *.njsproj
 *.sln
 *.sw?
+
+/dist
+/node_modules
