@@ -1,5 +1,7 @@
 import template from './template/template';
 import ModalSet from "./ModalSet";
+import { Menu } from "./components/Menu";
+import { Modal } from './components/Modal';
 import './styles.css';
 
 class InitApp {
@@ -178,4 +180,22 @@ class InitApp {
   }
 }
 
-new InitApp();
+// new InitApp();
+class MainLogic {
+  constructor(menu, modal) {
+    this.menu = menu;
+    this.modal = modal;
+    this.menu.onClickSettings = this.activeModal.bind(this);
+    this.menu.onClickStart = this.startClick.bind(this);
+  }
+
+  activeModal() {
+    this.modal.changeVisible();
+  }
+  startClick() {
+  }
+}
+const parent = document.querySelector('body.Expand');
+const menu = new Menu(parent);
+const modal = new Modal(parent);
+new MainLogic(menu, modal);
