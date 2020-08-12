@@ -2,6 +2,7 @@ import template from './template/template';
 import ModalSet from "./ModalSet";
 import { Menu } from "./components/Menu";
 import { ModelData } from "./ModelData";
+import { Chips } from "./components/Chips";
 import { ModalSettings } from './components/ModalSettings';
 import './styles.css';
 
@@ -182,6 +183,7 @@ class InitApp {
 }
 
 // new InitApp();
+
 class MainLogic {
   constructor(menu, modal, modelData) {
     this.menu = menu;
@@ -204,5 +206,5 @@ class MainLogic {
 const parent = document.querySelector('body.Expand');
 const menu = new Menu(parent);
 const modelData = new ModelData();
-const modal = new ModalSettings(parent);
+const modal = new ModalSettings(parent, Chips);
 new MainLogic(menu, modal, modelData);

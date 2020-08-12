@@ -1,0 +1,17 @@
+{
+  "inputAge": {
+    "style": false,
+    "selector": "#chips-age",
+    "name": "chipsAge"
+  },
+  "inputInfo": {
+    "style": false,
+    "selector": "#chips-info",
+    "name": "chipsInfo"
+  },
+  "inputDescription": {
+    "style": true,
+    "selector": "#chips-description",
+    "name": "chipsDescription"
+  }
+}

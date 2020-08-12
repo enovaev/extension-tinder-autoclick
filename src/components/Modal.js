@@ -18,14 +18,32 @@ export class Modal {
     this.parent.insertAdjacentHTML('afterend', this.template);
     this.container = document.querySelector('.window');
 
-    document.querySelector('.btn-modal.close').addEventListener('click', this.changeVisible.bind(this));
-    document.querySelector('.btn-modal.save').addEventListener('click', this.applyModal.bind(this));
-    document.querySelector('.close-modal-img').addEventListener('click', this.changeVisible.bind(this))
+    this.close = document.querySelector('.btn-modal.close');
+    this.save = document.querySelector('.btn-modal.save');
+    this.btnClose = document.querySelector('.close-modal-img');
+
+    this.change = this.changeVisible.bind(this);
+    this.apply = this.applyModal.bind(this);
+  }
+  addListeners() {
+    this.close.addEventListener('click', this.change);
+    this.save.addEventListener('click', this.apply);
+    this.btnClose.addEventListener('click', this.change);
+  }
+  removeListeners() {
+    this.close.removeEventListener('click', this.change);
+    this.save.removeEventListener('click', this.apply);
+    this.btnClose.removeEventListener('click', this.change);
   }
   changeVisible() {
     this.visible = !this.visible;
-    if(this.visible) this.container.classList.remove('hide');
-    else this.container.classList.add('hide');
+    if(this.visible) {
+      this.addListeners();
+      this.container.classList.remove('hide');
+    } else {
+      this.removeListeners();
+      this.container.classList.add('hide');
+    }
   }
   applyModal() {
     this.changeVisible();
