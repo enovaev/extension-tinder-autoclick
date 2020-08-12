@@ -15,7 +15,7 @@ export class Modal {
   constructor(parent) {
     this.visible = false;
     this.parent = parent;
-    this.parent.insertAdjacentHTML('afterend', this.template);
+    this.parent.insertAdjacentHTML('beforeend', this.template);
     this.container = document.querySelector('.window');
 
     this.close = document.querySelector('.btn-modal.close');

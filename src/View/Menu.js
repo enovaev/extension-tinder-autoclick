@@ -8,7 +8,7 @@ class Menu {
 
   constructor(parent) {
     this.parent = parent;
-    this.parent.insertAdjacentHTML('afterend', this.template);
+    this.parent.insertAdjacentHTML('beforeend', this.template);
     this.onClickSettings = null;
     this.onClickStart = null;
     document.querySelector('.img-settings')
