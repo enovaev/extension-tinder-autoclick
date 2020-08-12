@@ -1,7 +1,8 @@
 import template from './template/template';
 import ModalSet from "./ModalSet";
 import { Menu } from "./components/Menu";
-import { Modal } from './components/Modal';
+import { ModelData } from "./ModelData";
+import { ModalSettings } from './components/ModalSettings';
 import './styles.css';
 
 class InitApp {
@@ -182,20 +183,26 @@ class InitApp {
 
 // new InitApp();
 class MainLogic {
-  constructor(menu, modal) {
+  constructor(menu, modal, modelData) {
     this.menu = menu;
+    this.modelData = modelData;
     this.modal = modal;
-    this.menu.onClickSettings = this.activeModal.bind(this);
+    this.modal.applySettings = this.applySettings.bind(this);
+    this.menu.onClickSettings = this.openModal.bind(this);
     this.menu.onClickStart = this.startClick.bind(this);
   }
 
-  activeModal() {
-    this.modal.changeVisible();
+  applySettings(data) {
+    this.modelData.saveData(data);
+  }
+  openModal() {
+    this.modal.changeVisible(this.modelData.getData());
   }
   startClick() {
   }
 }
 const parent = document.querySelector('body.Expand');
 const menu = new Menu(parent);
-const modal = new Modal(parent);
-new MainLogic(menu, modal);
+const modelData = new ModelData();
+const modal = new ModalSettings(parent);
+new MainLogic(menu, modal, modelData);
