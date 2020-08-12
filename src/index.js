@@ -3,7 +3,7 @@ import { Menu } from "./View/Menu";
 import { ModelData } from "./Model/ModelData";
 import { Chips } from "./View/Chips";
 import { ModalSettings } from './View/ModalSettings';
-import './styles.css';
+import './styles.scss';
 
 
 const parent = document.querySelector('body.Expand');

@@ -16,42 +16,42 @@ export class ModalSettings extends Modal {
             <input id="testCheck" type="checkbox">
           </div>
         </div>
-          <div class="field">
-            <div class="field-content">
-              <span class="label-field">Количество персон:</span>
-              <input id="inputQuantity" type="number" class="input">
-            </div>
+        <div class="field">
+          <div class="field-content">
+            <span class="label-field">Количество персон:</span>
+            <input id="inputQuantity" type="number" class="input">
           </div>
-          <div class="field">
-            <div class="field-content">
-              <span class="label-field">Количество фото:</span>
-              <input id="inputPhoto" type="number" class="input">
-            </div>
+        </div>
+        <div class="field">
+          <div class="field-content">
+            <span class="label-field">Количество фото:</span>
+            <input id="inputPhoto" type="number" class="input">
           </div>
-          <div class="field">
-            <div class="field-content">
-              <span class="label-field">Возраст:</span>
-              <input id="inputAge" type="number" class="input">
-            </div>
-            <div id="chips-age" class="chips-container"></div>
+        </div>
+        <div class="field">
+          <div class="field-content">
+            <span class="label-field">Возраст:</span>
+            <input id="inputAge" type="number" class="input">
           </div>
-          <div class="field">
-            <div class="field-content">
-              <span class="label-field">Ключевые слова (ВУЗ):</span>         
-              <input id="inputInfo" class="input">
-            </div>
-            <div id="chips-info" class="chips-container"></div>
+          <div id="chips-age" class="chips-container"></div>
+        </div>
+        <div class="field">
+          <div class="field-content">
+            <span class="label-field">Ключевые слова (ВУЗ):</span>         
+            <input id="inputInfo" class="input">
           </div>
-          <div class="field">
-            <div class="field-content">
-              <span class="label-field">Исключаемые слова (Описание):</span>              
-              <input id="inputDescription" class="input">
-            </div>
-            <div id="chips-description" class="chips-container"></div>
+          <div id="chips-info" class="chips-container"></div>
+        </div>
+        <div class="field">
+          <div class="field-content">
+            <span class="label-field">Исключаемые слова (Описание):</span>              
+            <input id="inputDescription" class="input">
           </div>
+          <div id="chips-description" class="chips-container"></div>
+        </div>
       </div>
       <div class="separator"></div>
-  </div>
+    </div>
   `
   constructor(parent, chips) {
     super(parent);
